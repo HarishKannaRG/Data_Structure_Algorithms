@@ -2,6 +2,13 @@ package com.example.recusion;
 
 public class Recursion {
 
+
+    /**
+     * @implNote This method is to remove a given character from a given string in recursive way
+     * @param original
+     * @param toRemove
+     * @return
+     */
     public static String removeChar(String original, char toRemove) {
         System.out.println("original:"+original);
         if(original.isBlank()) {
