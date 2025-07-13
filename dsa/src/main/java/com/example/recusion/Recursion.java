@@ -1,5 +1,10 @@
 package com.example.recusion;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.helper.RecursionHelper;
+
 public class Recursion {
 
 
@@ -22,5 +27,17 @@ public class Recursion {
         else {
             return charAtZero+removeChar(original.substring(1), toRemove);
         }
+    }
+
+    /**
+     * @implNote This method is to generate all the possible subsets in an array that gives the target sum
+     * @param candidates
+     * @param target
+     * @return
+     */
+    public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        RecursionHelper.combinationSumHelper(candidates, target, 0, result, new ArrayList<Integer>());
+        return result;
     }
 }
