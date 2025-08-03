@@ -3,6 +3,8 @@ package com.example.recusion;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.xml.sax.SAXException;
+
 import com.example.helper.RecursionHelper;
 
 public class Recursion {
@@ -39,5 +41,20 @@ public class Recursion {
         List<List<Integer>> result = new ArrayList<>();
         RecursionHelper.combinationSumHelper(candidates, target, 0, result, new ArrayList<Integer>());
         return result;
+    }
+
+    public static ArrayList<String> subSequence(String processed, String unprocessed) {
+        if(unprocessed.isBlank()) {
+            ArrayList<String> result = new ArrayList<>();
+            if(!processed.isBlank()) {
+                result.add(processed);
+            }
+            return result;
+        }
+        char first = unprocessed.charAt(0);
+        ArrayList<String> left = subSequence(processed+first, unprocessed.substring(1));
+        ArrayList<String> right = subSequence(processed, unprocessed.substring(1));
+        left.addAll(right);
+        return left; 
     }
 }
